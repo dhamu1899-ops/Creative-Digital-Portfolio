@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Stackly</title>
+<link rel="icon" href="assets/img/stackly-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dash-body" data-role="user">
+
+<div class="dash-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="index.html" class="dash-logo">
+      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span>Stack<b>ly</b></span>
+    </a>
+
+    <nav class="dash-nav">
+      <p class="dash-nav-label">Workspace</p>
+      <a href="#overview" class="dash-link" data-view="overview"><span class="ic">▦</span><span class="label">Overview</span></a>
+      <a href="#projects" class="dash-link" data-view="projects"><span class="ic">◧</span><span class="label">My Projects</span></a>
+      <a href="#tasks" class="dash-link" data-view="tasks"><span class="ic">✓</span><span class="label">Tasks</span><span class="badge">5</span></a>
+      <a href="#messages" class="dash-link" data-view="messages"><span class="ic">✉</span><span class="label">Messages</span><span class="badge">3</span></a>
+      <a href="#files" class="dash-link" data-view="files"><span class="ic">▤</span><span class="label">Files</span></a>
+
+      <p class="dash-nav-label">Account</p>
+      <a href="#billing" class="dash-link" data-view="billing"><span class="ic">◎</span><span class="label">Billing</span></a>
+      <a href="#settings" class="dash-link" data-view="settings"><span class="ic">⚙</span><span class="label">Settings</span></a>
+    </nav>
+
+    <div class="dash-sidebar-foot">
+      <div class="dash-user-mini">
+        <div class="avatar" data-user-initial>N</div>
+        <div>
+          <div class="name" data-user-name>Noah Patel</div>
+          <div class="role" data-user-role>user</div>
+        </div>
+      </div>
+      <button class="logout-link"><span class="ic">⏻</span> Log out</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button class="icon-btn mobile-sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+        <div class="dash-search">
+          <span class="ic">⌕</span>
+          <input type="text" placeholder="Search projects, files, messages...">
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="dropdown-wrap">
+          <button class="icon-btn" data-dropdown-toggle="notifMenu" aria-label="Notifications">🔔<span class="dot"></span></button>
+          <div class="dropdown-menu" id="notifMenu">
+            <div class="dm-head"><span class="n">Notifications</span></div>
+            <div class="notif-item"><span class="activity-dot"></span><p><b>Halyard Health</b> project moved to review.</p></div>
+            <div class="notif-item"><span class="activity-dot"></span><p>New file uploaded to <b>Kairos Finance</b>.</p></div>
+            <div class="notif-item"><span class="activity-dot"></span><p>Invoice <b>#INV-0192</b> is due in 3 days.</p></div>
+          </div>
+        </div>
+        <div class="dropdown-wrap">
+          <button class="icon-btn" data-dropdown-toggle="profileMenu" aria-label="Profile menu" style="border-radius:10px; width:auto; padding:0 6px 0 0;">
+            <span class="avatar" data-user-initial style="width:32px;height:32px;font-size:12px;">N</span>
+          </button>
+          <div class="dropdown-menu" id="profileMenu">
+            <div class="dm-head"><span class="n" data-user-name>Noah Patel</span><br><span class="e" data-user-email>user@stackly.com</span></div>
+            <a href="#settings" class="dash-link-inline" onclick="document.querySelector('[data-view=settings]').click()">Account settings</a>
+            <a href="#billing" onclick="document.querySelector('[data-view=billing]').click()">Billing</a>
+            <button class="logout-link" style="padding:9px 10px;">Log out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+
+      <!-- OVERVIEW -->
+      <section class="dash-view" data-view="overview">
+        <div class="view-head">
+          <div>
+            <h1>Welcome back, <span data-user-name>Noah</span></h1>
+            <p>Here's what's happening across your projects today.</p>
+          </div>
+          <button class="btn btn-solid sm js-stub">+ New request</button>
+        </div>
+
+        <div class="stat-cards">
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">◧</div><span class="dstat-trend up">↑ 2 new</span></div>
+            <div class="dstat-value" data-count="4">0</div>
+            <div class="dstat-label">Active projects</div>
+          </div>
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">✓</div><span class="dstat-trend up">↑ 12%</span></div>
+            <div class="dstat-value" data-count="18">0</div>
+            <div class="dstat-label">Tasks completed this month</div>
+          </div>
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">✉</div><span class="dstat-trend down">3 unread</span></div>
+            <div class="dstat-value" data-count="27">0</div>
+            <div class="dstat-label">Messages this month</div>
+          </div>
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">◎</div><span class="dstat-trend up">On track</span></div>
+            <div class="dstat-value" data-count="82">0</div>
+            <div class="dstat-label">% of budget used</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><h3>Weekly activity</h3><span class="pill">Last 7 days</span></div>
+            <div class="bar-chart">
+              <div class="col"><div class="bar" data-height="40" style="height:0;"></div><span class="lbl">Mon</span></div>
+              <div class="col"><div class="bar" data-height="65" style="height:0;"></div><span class="lbl">Tue</span></div>
+              <div class="col"><div class="bar" data-height="52" style="height:0;"></div><span class="lbl">Wed</span></div>
+              <div class="col"><div class="bar" data-height="80" style="height:0;"></div><span class="lbl">Thu</span></div>
+              <div class="col"><div class="bar" data-height="70" style="height:0;"></div><span class="lbl">Fri</span></div>
+              <div class="col"><div class="bar alt" data-height="30" style="height:0;"></div><span class="lbl">Sat</span></div>
+              <div class="col"><div class="bar alt" data-height="18" style="height:0;"></div><span class="lbl">Sun</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>Project mix</h3></div>
+            <div class="donut-wrap">
+              <div class="donut"><div class="donut-center"><div class="n">4</div><div class="t">projects</div></div></div>
+              <ul class="donut-legend">
+                <li><span class="sw" style="background:var(--gold);"></span>Web development — 62%</li>
+                <li><span class="sw" style="background:var(--gold-dark);"></span>Product design — 22%</li>
+                <li><span class="sw" style="background:var(--line);"></span>Brand identity — 16%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Recent activity</h3></div>
+          <div class="activity-list">
+            <div class="activity-item"><span class="activity-dot"></span><div><p><b>Devon Achebe</b> uploaded new wireframes to <b>Halyard Health</b>.</p><span class="activity-time">2 hours ago</span></div></div>
+            <div class="activity-item"><span class="activity-dot"></span><div><p><b>Priya Kellerman</b> deployed a staging build for <b>Kairos Finance</b>.</p><span class="activity-time">Yesterday, 4:12 PM</span></div></div>
+            <div class="activity-item"><span class="activity-dot"></span><div><p>Invoice <b>#INV-0191</b> was marked as paid.</p><span class="activity-time">2 days ago</span></div></div>
+            <div class="activity-item"><span class="activity-dot"></span><div><p>Kickoff call scheduled for <b>Plumbline Gear v2</b>.</p><span class="activity-time">3 days ago</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="dash-view" data-view="projects">
+        <div class="view-head">
+          <div><h1>My projects</h1><p>Everything currently in motion with the Stackly team.</p></div>
+          <div class="filter-group">
+            <button class="filter-btn active js-stub">All</button>
+            <button class="filter-btn js-stub">In progress</button>
+            <button class="filter-btn js-stub">Review</button>
+            <button class="filter-btn js-stub">Complete</button>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="proj-row">
+            <div class="proj-ic">KF</div>
+            <div class="proj-info">
+              <h4>Kairos Finance — Web platform</h4>
+              <div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="72" style="width:0;"></div></div><span class="proj-pct">72%</span></div>
+            </div>
+            <span class="status-chip on">On track</span>
+          </div>
+          <div class="proj-row">
+            <div class="proj-ic">HH</div>
+            <div class="proj-info">
+              <h4>Halyard Health — Product redesign</h4>
+              <div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="45" style="width:0;"></div></div><span class="proj-pct">45%</span></div>
+            </div>
+            <span class="status-chip risk">Needs review</span>
+          </div>
+          <div class="proj-row">
+            <div class="proj-ic">PG</div>
+            <div class="proj-info">
+              <h4>Plumbline Gear — Brand refresh v2</h4>
+              <div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="18" style="width:0;"></div></div><span class="proj-pct">18%</span></div>
+            </div>
+            <span class="status-chip on">Kickoff scheduled</span>
+          </div>
+          <div class="proj-row">
+            <div class="proj-ic">AL</div>
+            <div class="proj-info">
+              <h4>Argot Labs — Dashboard build</h4>
+              <div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="97" style="width:0;"></div></div><span class="proj-pct">97%</span></div>
+            </div>
+            <span class="status-chip late">Final QA</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TASKS -->
+      <section class="dash-view" data-view="tasks">
+        <div class="view-head">
+          <div><h1>Tasks</h1><p>Items waiting on your input or approval.</p></div>
+          <button class="btn btn-solid sm js-stub">+ New task</button>
+        </div>
+        <div class="panel">
+          <table class="dash-table">
+            <thead><tr><th>Task</th><th>Project</th><th>Due</th><th>Priority</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Approve homepage copy</td><td>Kairos Finance</td><td>Jul 4</td><td>High</td><td><span class="pill-status pending">Pending</span></td></tr>
+              <tr><td>Review onboarding flow</td><td>Halyard Health</td><td>Jul 6</td><td>Medium</td><td><span class="pill-status pending">Pending</span></td></tr>
+              <tr><td>Sign brand guidelines PDF</td><td>Plumbline Gear</td><td>Jul 8</td><td>Low</td><td><span class="pill-status active">Assigned</span></td></tr>
+              <tr><td>Confirm domain transfer</td><td>Argot Labs</td><td>Jul 3</td><td>High</td><td><span class="pill-status suspended">Overdue</span></td></tr>
+              <tr><td>Approve final QA checklist</td><td>Argot Labs</td><td>Jul 5</td><td>High</td><td><span class="pill-status pending">Pending</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- MESSAGES -->
+      <section class="dash-view" data-view="messages">
+        <div class="view-head"><div><h1>Messages</h1><p>Direct line to your project team.</p></div></div>
+        <div class="msg-shell">
+          <div class="msg-list">
+            <div class="msg-item active">
+              <span class="avatar" style="width:36px;height:36px;font-size:13px;">D</span>
+              <div><div class="n">Devon Achebe</div><div class="p">Sent the updated wireframes...</div></div>
+              <span class="msg-time">2h</span>
+            </div>
+            <div class="msg-item">
+              <span class="avatar" style="width:36px;height:36px;font-size:13px;">P</span>
+              <div><div class="n">Priya Kellerman</div><div class="p">Staging build is live for QA</div></div>
+              <span class="msg-time">1d</span>
+            </div>
+            <div class="msg-item">
+              <span class="avatar" style="width:36px;height:36px;font-size:13px;">J</span>
+              <div><div class="n">Julia Ferreira</div><div class="p">Quick question about invoice...</div></div>
+              <span class="msg-time">3d</span>
+            </div>
+          </div>
+          <div class="msg-thread">
+            <div class="msg-thread-head"><span class="avatar" style="width:34px;height:34px;font-size:12px;">D</span><span id="threadName">Devon Achebe</span></div>
+            <div class="msg-thread-body" id="threadBody">
+              <div class="bubble in">Hey! Just pushed the updated wireframes for the Halyard onboarding flow — take a look when you get a chance.</div>
+              <div class="bubble out">Looks great, love the simplified step 2. Can we push the CTA color up slightly?</div>
+              <div class="bubble in">Done — updated version is in the Files tab now.</div>
+            </div>
+            <form class="msg-thread-foot" id="msgForm">
+              <input type="text" placeholder="Type a message...">
+              <button type="submit" class="btn btn-solid sm">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FILES -->
+      <section class="dash-view" data-view="files">
+        <div class="view-head"><div><h1>Files</h1><p>Shared deliverables across all your projects.</p></div><button class="btn btn-line sm js-stub">Upload file</button></div>
+        <div class="panel">
+          <table class="dash-table">
+            <thead><tr><th>File</th><th>Project</th><th>Size</th><th>Uploaded</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Brand-guidelines-v3.pdf</td><td>Plumbline Gear</td><td>4.2 MB</td><td>Jun 28</td><td><div class="table-actions"><button title="Download" class="js-stub">⇩</button></div></td></tr>
+              <tr><td>Homepage-wireframes.fig</td><td>Halyard Health</td><td>18 MB</td><td>Jun 27</td><td><div class="table-actions"><button title="Download" class="js-stub">⇩</button></div></td></tr>
+              <tr><td>Kairos-staging-build.zip</td><td>Kairos Finance</td><td>62 MB</td><td>Jun 25</td><td><div class="table-actions"><button title="Download" class="js-stub">⇩</button></div></td></tr>
+              <tr><td>QA-checklist-final.xlsx</td><td>Argot Labs</td><td>0.8 MB</td><td>Jun 21</td><td><div class="table-actions"><button title="Download" class="js-stub">⇩</button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- BILLING -->
+      <section class="dash-view" data-view="billing">
+        <div class="view-head"><div><h1>Billing</h1><p>Your plan, payment method and invoice history.</p></div></div>
+        <div class="plan-card">
+          <div>
+            <p class="eyebrow" style="margin-bottom:8px;">Current plan</p>
+            <h3 style="font-size:22px;">Studio — ₹3,45,000 / month</h3>
+            <p style="color:var(--muted); font-size:13.5px; margin-top:6px;">Next billing date: July 15, 2026</p>
+          </div>
+          <a href="pricing.html" class="btn btn-line">Change plan</a>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Invoice history</h3></div>
+          <div class="invoice-row"><span>INV-0192 — Jul 2026</span><span style="color:var(--muted);">₹3,45,000</span><span class="pill-status pending">Due Jul 15</span></div>
+          <div class="invoice-row"><span>INV-0191 — Jun 2026</span><span style="color:var(--muted);">₹3,45,000</span><span class="pill-status active">Paid</span></div>
+          <div class="invoice-row"><span>INV-0190 — May 2026</span><span style="color:var(--muted);">₹3,45,000</span><span class="pill-status active">Paid</span></div>
+          <div class="invoice-row"><span>INV-0189 — Apr 2026</span><span style="color:var(--muted);">₹3,45,000</span><span class="pill-status active">Paid</span></div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="dash-view" data-view="settings">
+        <div class="view-head"><div><h1>Settings</h1><p>Manage your account and notification preferences.</p></div></div>
+        <div class="panel" style="margin-bottom:22px;">
+          <div class="panel-head"><h3>Profile</h3></div>
+          <form class="settings-form">
+            <div class="settings-grid">
+              <div class="field"><label>Full name</label><input type="text" value="Noah Patel"></div>
+              <div class="field"><label>Email</label><input type="email" value="user@stackly.com"></div>
+              <div class="field"><label>Company</label><input type="text" value="Kairos Finance"></div>
+              <div class="field"><label>Phone</label><input type="text" value="+91 98765 43210"></div>
+              <div class="field full"><label>Bio</label><textarea>Product lead at Kairos Finance, working with Stackly since 2024.</textarea></div>
+            </div>
+            <button type="submit" class="btn btn-solid">Save changes</button>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Notification preferences</h3></div>
+          <div class="toggle-row">
+            <div><h4>Email notifications</h4><p>Project updates and deliverable uploads.</p></div>
+            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div><h4>SMS alerts</h4><p>Urgent updates only.</p></div>
+            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div><h4>Weekly digest</h4><p>A Monday morning summary of activity.</p></div>
+            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/effects.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

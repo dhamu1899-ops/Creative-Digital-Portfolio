@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Stackly Studio</title>
+<meta name="description" content="Notes on design, engineering and growth from the Stackly Studio team.">
+<link rel="icon" href="assets/img/stackly-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span class="logo-word">Stack<span>ly</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="team.html">Team</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="login.html" class="btn btn-ghost hide-mobile">Log in</a>
+      <a href="login.html" class="btn btn-solid">Start a project <span class="arrow">↗</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Home</a> / <span>Blog</span></p>
+    <h1>Notes on design,<br>engineering and growth</h1>
+    <p>Field notes from inside client projects — what worked, what didn't, and what we'd do differently.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:90px;">
+  <div class="wrap blog-layout">
+    <div>
+      <div class="journal-grid" style="margin-bottom:60px;">
+        <article class="journal-card reveal-up">
+          <div class="journal-img"><img src="https://picsum.photos/seed/stackly-b1/700/500.webp" alt="Cover image for article on brand systems"><span class="journal-date">Jun 24</span></div>
+          <p class="journal-cat">Branding</p>
+          <h3>Why most rebrands fail in the first year</h3>
+          <p>The pattern is rarely the design itself — it's what happens six months after launch, when nobody owns the system anymore.</p>
+          <a href="#" class="card-link">Read more <span class="arrow">↗</span></a>
+        </article>
+        <article class="journal-card reveal-up delay-1">
+          <div class="journal-img"><img src="https://picsum.photos/seed/stackly-b2/700/500.webp" alt="Cover image for article on design systems"><span class="journal-date">Jun 11</span></div>
+          <p class="journal-cat">Product</p>
+          <h3>Design systems are a team habit, not a Figma file</h3>
+          <p>A component library only pays off once the whole team, not just design, treats it as the source of truth.</p>
+          <a href="#" class="card-link">Read more <span class="arrow">↗</span></a>
+        </article>
+        <article class="journal-card reveal-up delay-2">
+          <div class="journal-img"><img src="https://picsum.photos/seed/stackly-b3/700/500.webp" alt="Cover image for article on organic growth"><span class="journal-date">May 29</span></div>
+          <p class="journal-cat">Growth</p>
+          <h3>The slow, unglamorous work behind organic growth</h3>
+          <p>Most of what moved the needle for our clients last year had nothing to do with a viral moment.</p>
+          <a href="#" class="card-link">Read more <span class="arrow">↗</span></a>
+        </article>
+        <article class="journal-card reveal-up">
+          <div class="journal-img"><img src="https://picsum.photos/seed/stackly-b4/700/500.webp" alt="Cover image for article on engineering handoff"><span class="journal-date">May 14</span></div>
+          <p class="journal-cat">Engineering</p>
+          <h3>What a good design-to-code handoff actually looks like</h3>
+          <p>It's less about redlines and more about shared vocabulary between the person designing and the person building.</p>
+          <a href="#" class="card-link">Read more <span class="arrow">↗</span></a>
+        </article>
+        <article class="journal-card reveal-up delay-1">
+          <div class="journal-img"><img src="https://picsum.photos/seed/stackly-b5/700/500.webp" alt="Cover image for article on client relationships"><span class="journal-date">Apr 30</span></div>
+          <p class="journal-cat">Studio</p>
+          <h3>How we scope a project before writing a line of copy</h3>
+          <p>A look inside our discovery process, and the three questions every engagement starts with.</p>
+          <a href="#" class="card-link">Read more <span class="arrow">↗</span></a>
+        </article>
+        <article class="journal-card reveal-up delay-2">
+          <div class="journal-img"><img src="https://picsum.photos/seed/stackly-b6/700/500.webp" alt="Cover image for article on mobile design"><span class="journal-date">Apr 18</span></div>
+          <p class="journal-cat">Product</p>
+          <h3>Designing for one-handed use, six months in</h3>
+          <p>What we learned building a mobile-first product for users who are rarely sitting still.</p>
+          <a href="#" class="card-link">Read more <span class="arrow">↗</span></a>
+        </article>
+      </div>
+    </div>
+
+    <aside class="blog-sidebar">
+      <div class="side-card reveal-up">
+        <h4>Categories</h4>
+        <div class="tag-list">
+          <a href="#">Branding</a><a href="#">Product</a><a href="#">Engineering</a><a href="#">Growth</a><a href="#">Studio</a>
+        </div>
+      </div>
+      <div class="side-card reveal-up delay-1">
+        <h4>Popular posts</h4>
+        <div class="mini-post">
+          <img src="https://picsum.photos/seed/stackly-mini1/100/100.webp" alt="">
+          <div><span class="mini-post-date">Mar 02</span><h5>The case for fewer client meetings</h5></div>
+        </div>
+        <div class="mini-post">
+          <img src="https://picsum.photos/seed/stackly-mini2/100/100.webp" alt="">
+          <div><span class="mini-post-date">Feb 21</span><h5>Pricing a project without underselling it</h5></div>
+        </div>
+        <div class="mini-post">
+          <img src="https://picsum.photos/seed/stackly-mini3/100/100.webp" alt="">
+          <div><span class="mini-post-date">Feb 08</span><h5>What we look for in a design portfolio</h5></div>
+        </div>
+      </div>
+      <div class="side-card reveal-up delay-2">
+        <h4>Subscribe</h4>
+        <p style="color:var(--muted); font-size:13.5px; margin-bottom:16px;">One email a month, no fluff.</p>
+        <form class="newsletter" id="newsletterForm" style="max-width:none;">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+        <span class="logo-word">Stack<span>ly</span></span>
+      </a>
+      <p>An independent product design and engineering studio based in Salem, Tamil Nadu — building for teams everywhere.</p>
+      <form class="newsletter" id="footerNewsletterForm">
+        <input type="email" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit">Join</button>
+      </form>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="work.html">Work</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Brand identity</a>
+      <a href="services.html">Product &amp; UX</a>
+      <a href="services.html">Web development</a>
+      <a href="services.html">Growth &amp; SEO</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@stackly.com">hello@stackly.com</a>
+      <a href="tel:+914272345678">+91 427 234 5678</a>
+      <span class="footer-address">149 Cherry Road, Fairlands,<br>Salem, Tamil Nadu 636016</span>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© <span id="year"></span> Stackly Studio. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .3 2.4.5.6.2 1 .5 1.5 1 .4.4.7.9 1 1.5.2.4.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 2-.5 2.4-.2.6-.5 1-1 1.5-.4.4-.9.7-1.5 1-.4.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.3-2.4-.5-.6-.2-1-.5-1.5-1-.4-.4-.7-.9-1-1.5-.2-.4-.4-1.2-.5-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-2 .5-2.4.2-.6.5-1 1-1.5.4-.4.9-.7 1.5-1 .4-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-1.9.4-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.9-.4 1.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.4 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.9.3 1.9.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 1.9-.4.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.9.4-1.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.4-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.9-.3-1.9-.4-1.2-.1-1.6-.1-4.7-.1zM12 6.9a5.1 5.1 0 1 1 0 10.2 5.1 5.1 0 0 1 0-10.2zm0 1.8a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6zm5.3-2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.6 14.2 3.6c-2.4 0-4.1 1.47-4.1 4.16V9.9H7.4V13h2.7v8z"/></svg></a>
+      <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M13.98 10.62 20.28 3h-1.5l-5.47 6.62L8.65 3H3l6.64 9.6L3 21h1.5l5.78-6.99L15.35 21H21l-7.02-10.38zm-2.05 2.48-.67-.96L5.02 4.2h2.3l4.29 6.14.67.96 5.58 7.98h-2.3l-4.63-6.62z"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.96 3.77-1.96C20.9 8.74 22 11 22 14.4V21h-4v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.8H9z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<script src="assets/js/effects.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

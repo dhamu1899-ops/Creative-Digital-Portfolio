@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Stackly</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/stackly-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .notfound-shell{
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; padding:40px 24px; text-align:center;
+  }
+  .notfound-shell::before, .notfound-shell::after{
+    content:""; position:absolute; width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle, rgba(216,171,99,.16), transparent 70%);
+    filter:blur(6px); animation:floatBlob 16s ease-in-out infinite;
+  }
+  .notfound-shell::before{ top:-160px; left:-140px; }
+  .notfound-shell::after{ bottom:-200px; right:-160px; animation-delay:-8s; animation-duration:20s; }
+  .notfound-inner{ position:relative; max-width:560px; }
+  .notfound-logo{ display:inline-flex; align-items:center; gap:10px; margin-bottom:48px; font-family:var(--font-display); font-weight:700; font-size:19px; }
+  .notfound-logo img{ width:30px; height:30px; }
+  .notfound-code{
+    font-family:var(--font-display); font-weight:800; line-height:.9;
+    font-size:clamp(90px,18vw,160px); color:var(--gold);
+    -webkit-text-stroke:2px var(--gold); letter-spacing:-.02em;
+    display:flex; justify-content:center; gap:6px; margin-bottom:8px;
+  }
+  .notfound-code span{ display:inline-block; animation:codeFloat 3.2s ease-in-out infinite; }
+  .notfound-code span:nth-child(2){ animation-delay:.15s; color:var(--gold); -webkit-text-stroke:0; }
+  .notfound-code span:nth-child(3){ animation-delay:.3s; }
+  @keyframes codeFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+  .notfound-pill{
+    display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px;
+    text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin-bottom:22px;
+  }
+  .notfound-pill span{ width:6px; height:6px; border-radius:50%; background:var(--bad); }
+  .notfound-inner h1{ font-size:clamp(24px,3.4vw,34px); margin-bottom:16px; }
+  .notfound-inner p{ color:var(--muted); font-size:15.5px; max-width:44ch; margin:0 auto 40px; }
+  .notfound-actions{ display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+
+<div class="notfound-shell">
+  <div class="notfound-inner">
+    <a href="index.html" class="notfound-logo">
+      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span>Stack<span style="color:var(--gold);">ly</span></span>
+    </a>
+
+    <div class="notfound-code"><span>4</span><span>0</span><span>4</span></div>
+
+    <p class="notfound-pill"><span></span>This page isn't built yet</p>
+
+    <h1>Looks like this path doesn't exist</h1>
+    <p>The page you're looking for may have been moved, renamed, or is still on our roadmap.
+      Let's get you back to solid ground.</p>
+
+    <div class="notfound-actions">
+      <button class="btn btn-solid lg" id="goBackBtn">← Go back</button>
+      <a href="index.html" class="btn btn-line lg">Back to home</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/effects.js"></script>
+<script>
+  document.getElementById('goBackBtn').addEventListener('click', () => {
+    if (window.history.length > 1) { window.history.back(); }
+    else { window.location.href = 'index.html'; }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Stackly</title>
+<link rel="icon" href="assets/img/stackly-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dash-body" data-role="admin">
+
+<div class="dash-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="index.html" class="dash-logo">
+      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span>Stack<b>ly</b> <small style="color:var(--muted); font-family:var(--font-mono); font-size:10px; font-weight:400;">ADMIN</small></span>
+    </a>
+
+    <nav class="dash-nav">
+      <p class="dash-nav-label">Platform</p>
+      <a href="#overview" class="dash-link" data-view="overview"><span class="ic">▦</span><span class="label">Overview</span></a>
+      <a href="#users" class="dash-link" data-view="users"><span class="ic">◍</span><span class="label">Users</span></a>
+      <a href="#projects" class="dash-link" data-view="projects"><span class="ic">◧</span><span class="label">Projects</span></a>
+      <a href="#analytics" class="dash-link" data-view="analytics"><span class="ic">▲</span><span class="label">Analytics</span></a>
+      <a href="#messages" class="dash-link" data-view="messages"><span class="ic">✉</span><span class="label">Messages</span><span class="badge">6</span></a>
+
+      <p class="dash-nav-label">Business</p>
+      <a href="#billing" class="dash-link" data-view="billing"><span class="ic">◎</span><span class="label">Revenue</span></a>
+      <a href="#settings" class="dash-link" data-view="settings"><span class="ic">⚙</span><span class="label">Settings</span></a>
+    </nav>
+
+    <div class="dash-sidebar-foot">
+      <div class="dash-user-mini">
+        <div class="avatar" data-user-initial>A</div>
+        <div>
+          <div class="name" data-user-name>Ava Kessler</div>
+          <div class="role" data-user-role>admin</div>
+        </div>
+      </div>
+      <button class="logout-link"><span class="ic">⏻</span> Log out</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button class="icon-btn mobile-sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+        <div class="dash-search">
+          <span class="ic">⌕</span>
+          <input type="text" placeholder="Search users, projects, invoices...">
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="dropdown-wrap">
+          <button class="icon-btn" data-dropdown-toggle="notifMenuA" aria-label="Notifications">🔔<span class="dot"></span></button>
+          <div class="dropdown-menu" id="notifMenuA">
+            <div class="dm-head"><span class="n">Notifications</span></div>
+            <div class="notif-item"><span class="activity-dot"></span><p>New signup: <b>Renee Achterberg</b> (Halyard Health).</p></div>
+            <div class="notif-item"><span class="activity-dot"></span><p>Invoice <b>#INV-0192</b> overdue for Argot Labs.</p></div>
+            <div class="notif-item"><span class="activity-dot"></span><p><b>Kairos Finance</b> project flagged at risk.</p></div>
+          </div>
+        </div>
+        <div class="dropdown-wrap">
+          <button class="icon-btn" data-dropdown-toggle="profileMenuA" aria-label="Profile menu" style="border-radius:10px; width:auto; padding:0 6px 0 0;">
+            <span class="avatar" data-user-initial style="width:32px;height:32px;font-size:12px;">A</span>
+          </button>
+          <div class="dropdown-menu" id="profileMenuA">
+            <div class="dm-head"><span class="n" data-user-name>Ava Kessler</span><br><span class="e" data-user-email>admin@stackly.com</span></div>
+            <a href="#" onclick="document.querySelector('[data-view=settings]').click()">Platform settings</a>
+            <a href="#" onclick="document.querySelector('[data-view=billing]').click()">Revenue</a>
+            <button class="logout-link" style="padding:9px 10px;">Log out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+
+      <!-- OVERVIEW -->
+      <section class="dash-view" data-view="overview">
+        <div class="view-head">
+          <div><h1>Studio overview</h1><p>Snapshot of everything running across Stackly right now.</p></div>
+          <button class="btn btn-solid sm js-stub">+ New client</button>
+        </div>
+
+        <div class="stat-cards">
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">◍</div><span class="dstat-trend up">↑ 8 this month</span></div>
+            <div class="dstat-value" data-count="94">0</div>
+            <div class="dstat-label">Total clients</div>
+          </div>
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">◧</div><span class="dstat-trend up">↑ 3 new</span></div>
+            <div class="dstat-value" data-count="22">0</div>
+            <div class="dstat-label">Active projects</div>
+          </div>
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">◎</div><span class="dstat-trend up">↑ 14%</span></div>
+            <div class="dstat-value" data-count="41">0</div>
+            <div class="dstat-label">MRR (₹ lakh)</div>
+          </div>
+          <div class="dstat-card stack">
+            <div class="dstat-top"><div class="dstat-ic">⏱</div><span class="dstat-trend down">2 overdue</span></div>
+            <div class="dstat-value" data-count="6">0</div>
+            <div class="dstat-label">Open invoices</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><h3>Revenue trend</h3><span class="pill">Last 7 months</span></div>
+            <div class="bar-chart">
+              <div class="col"><div class="bar" data-height="45" style="height:0;"></div><span class="lbl">Jan</span></div>
+              <div class="col"><div class="bar" data-height="52" style="height:0;"></div><span class="lbl">Feb</span></div>
+              <div class="col"><div class="bar" data-height="48" style="height:0;"></div><span class="lbl">Mar</span></div>
+              <div class="col"><div class="bar" data-height="63" style="height:0;"></div><span class="lbl">Apr</span></div>
+              <div class="col"><div class="bar" data-height="71" style="height:0;"></div><span class="lbl">May</span></div>
+              <div class="col"><div class="bar" data-height="80" style="height:0;"></div><span class="lbl">Jun</span></div>
+              <div class="col"><div class="bar alt" data-height="90" style="height:0;"></div><span class="lbl">Jul</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>Clients by service</h3></div>
+            <div class="donut-wrap">
+              <div class="donut"><div class="donut-center"><div class="n">94</div><div class="t">clients</div></div></div>
+              <ul class="donut-legend">
+                <li><span class="sw" style="background:var(--gold);"></span>Studio plan — 62%</li>
+                <li><span class="sw" style="background:var(--gold-dark);"></span>Partner plan — 22%</li>
+                <li><span class="sw" style="background:var(--line);"></span>Starter plan — 16%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Recent platform activity</h3></div>
+          <div class="activity-list">
+            <div class="activity-item"><span class="activity-dot"></span><div><p><b>Renee Achterberg</b> signed up as a new user for Halyard Health.</p><span class="activity-time">1 hour ago</span></div></div>
+            <div class="activity-item"><span class="activity-dot"></span><div><p><b>Julia Ferreira</b> marked invoice <b>#INV-0187</b> as paid.</p><span class="activity-time">3 hours ago</span></div></div>
+            <div class="activity-item"><span class="activity-dot"></span><div><p><b>Kairos Finance</b> project flagged "needs review" by the team.</p><span class="activity-time">Yesterday</span></div></div>
+            <div class="activity-item"><span class="activity-dot"></span><div><p>New project created: <b>Cobble Realty — Marketing site</b>.</p><span class="activity-time">2 days ago</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USERS -->
+      <section class="dash-view" data-view="users">
+        <div class="view-head">
+          <div><h1>Users</h1><p>Everyone with access to the Stackly client portal.</p></div>
+          <button class="btn btn-solid sm js-stub">+ Invite user</button>
+        </div>
+        <div class="panel">
+          <div class="filter-group" style="margin-bottom:18px;">
+            <button class="dash-filter-btn active js-stub">All (12)</button>
+            <button class="dash-filter-btn js-stub">Active</button>
+            <button class="dash-filter-btn js-stub">Pending</button>
+            <button class="dash-filter-btn js-stub">Suspended</button>
+          </div>
+          <table class="dash-table">
+            <thead><tr><th>User</th><th>Company</th><th>Role</th><th>Status</th><th>Joined</th><th></th></tr></thead>
+            <tbody>
+              <tr><td><div class="row-user"><span class="avatar">N</span><div><div class="n">Noah Patel</div><div class="e">user@stackly.com</div></div></div></td><td>Kairos Finance</td><td>User</td><td><span class="pill-status active">Active</span></td><td>Mar 2024</td><td><div class="table-actions"><button title="Edit" class="js-stub">✎</button><button title="Remove" class="js-stub">✕</button></div></td></tr>
+              <tr><td><div class="row-user"><span class="avatar">R</span><div><div class="n">Renee Achterberg</div><div class="e">renee@halyard.co</div></div></div></td><td>Halyard Health</td><td>User</td><td><span class="pill-status pending">Pending</span></td><td>Jul 2026</td><td><div class="table-actions"><button title="Edit" class="js-stub">✎</button><button title="Remove" class="js-stub">✕</button></div></td></tr>
+              <tr><td><div class="row-user"><span class="avatar">O</span><div><div class="n">Owen Faust</div><div class="e">owen@plumbline.co</div></div></div></td><td>Plumbline Gear</td><td>User</td><td><span class="pill-status active">Active</span></td><td>Jan 2025</td><td><div class="table-actions"><button title="Edit" class="js-stub">✎</button><button title="Remove" class="js-stub">✕</button></div></td></tr>
+              <tr><td><div class="row-user"><span class="avatar">A</span><div><div class="n">Alisha Martin</div><div class="e">alisha@kairos.io</div></div></div></td><td>Kairos Finance</td><td>User</td><td><span class="pill-status active">Active</span></td><td>Mar 2024</td><td><div class="table-actions"><button title="Edit" class="js-stub">✎</button><button title="Remove" class="js-stub">✕</button></div></td></tr>
+              <tr><td><div class="row-user"><span class="avatar">D</span><div><div class="n">Devon Achebe</div><div class="e">devon@stackly.com</div></div></div></td><td>Stackly Studio</td><td>Admin</td><td><span class="pill-status active">Active</span></td><td>Aug 2018</td><td><div class="table-actions"><button title="Edit" class="js-stub">✎</button><button title="Remove" class="js-stub">✕</button></div></td></tr>
+              <tr><td><div class="row-user"><span class="avatar">T</span><div><div class="n">Theo Bracken</div><div class="e">theo@stackly.com</div></div></div></td><td>Stackly Studio</td><td>Admin</td><td><span class="pill-status suspended">Suspended</span></td><td>Feb 2021</td><td><div class="table-actions"><button title="Edit" class="js-stub">✎</button><button title="Remove" class="js-stub">✕</button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="dash-view" data-view="projects">
+        <div class="view-head">
+          <div><h1>Projects</h1><p>All active and past client engagements.</p></div>
+          <button class="btn btn-solid sm js-stub">+ New project</button>
+        </div>
+        <div class="panel">
+          <div class="proj-row">
+            <div class="proj-ic">KF</div>
+            <div class="proj-info"><h4>Kairos Finance — Web platform</h4><div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="72" style="width:0;"></div></div><span class="proj-pct">72%</span></div></div>
+            <span class="status-chip on">On track</span>
+          </div>
+          <div class="proj-row">
+            <div class="proj-ic">HH</div>
+            <div class="proj-info"><h4>Halyard Health — Product redesign</h4><div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="45" style="width:0;"></div></div><span class="proj-pct">45%</span></div></div>
+            <span class="status-chip risk">Needs review</span>
+          </div>
+          <div class="proj-row">
+            <div class="proj-ic">PG</div>
+            <div class="proj-info"><h4>Plumbline Gear — Brand refresh v2</h4><div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="18" style="width:0;"></div></div><span class="proj-pct">18%</span></div></div>
+            <span class="status-chip on">Kickoff scheduled</span>
+          </div>
+          <div class="proj-row">
+            <div class="proj-ic">AL</div>
+            <div class="proj-info"><h4>Argot Labs — Dashboard build</h4><div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="97" style="width:0;"></div></div><span class="proj-pct">97%</span></div></div>
+            <span class="status-chip late">Final QA</span>
+          </div>
+          <div class="proj-row">
+            <div class="proj-ic">CR</div>
+            <div class="proj-info"><h4>Cobble Realty — Marketing site</h4><div class="proj-meta"><div class="proj-bar"><div class="proj-bar-fill" data-width="8" style="width:0;"></div></div><span class="proj-pct">8%</span></div></div>
+            <span class="status-chip on">Discovery</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANALYTICS -->
+      <section class="dash-view" data-view="analytics">
+        <div class="view-head"><div><h1>Analytics</h1><p>Studio-wide performance across clients and channels.</p></div></div>
+        <div class="three-col">
+          <div class="dstat-card stack"><div class="dstat-top"><div class="dstat-ic">◍</div><span class="dstat-trend up">↑ 18%</span></div><div class="dstat-value" data-count="312">0</div><div class="dstat-label">New leads this quarter</div></div>
+          <div class="dstat-card stack"><div class="dstat-top"><div class="dstat-ic">◎</div><span class="dstat-trend up">↑ 6%</span></div><div class="dstat-value" data-count="31">0</div><div class="dstat-label">Lead-to-client rate %</div></div>
+          <div class="dstat-card stack"><div class="dstat-top"><div class="dstat-ic">⏱</div><span class="dstat-trend down">-4%</span></div><div class="dstat-value" data-count="18">0</div><div class="dstat-label">Avg. days to close</div></div>
+        </div>
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><h3>Traffic by channel</h3></div>
+            <div class="bar-chart">
+              <div class="col"><div class="bar" data-height="85" style="height:0;"></div><span class="lbl">Organic</span></div>
+              <div class="col"><div class="bar" data-height="55" style="height:0;"></div><span class="lbl">Referral</span></div>
+              <div class="col"><div class="bar" data-height="40" style="height:0;"></div><span class="lbl">Social</span></div>
+              <div class="col"><div class="bar alt" data-height="30" style="height:0;"></div><span class="lbl">Paid</span></div>
+              <div class="col"><div class="bar alt" data-height="20" style="height:0;"></div><span class="lbl">Direct</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>Projects by category</h3></div>
+            <div class="donut-wrap">
+              <div class="donut"><div class="donut-center"><div class="n">22</div><div class="t">active</div></div></div>
+              <ul class="donut-legend">
+                <li><span class="sw" style="background:var(--gold);"></span>Web development — 50%</li>
+                <li><span class="sw" style="background:var(--gold-dark);"></span>Product design — 27%</li>
+                <li><span class="sw" style="background:var(--line);"></span>Brand identity — 23%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MESSAGES -->
+      <section class="dash-view" data-view="messages">
+        <div class="view-head"><div><h1>Messages</h1><p>Conversations across all client accounts.</p></div></div>
+        <div class="msg-shell">
+          <div class="msg-list">
+            <div class="msg-item active"><span class="avatar" style="width:36px;height:36px;font-size:13px;">A</span><div><div class="n">Alisha Martin</div><div class="p">Question about the invoice date</div></div><span class="msg-time">10m</span></div>
+            <div class="msg-item"><span class="avatar" style="width:36px;height:36px;font-size:13px;">O</span><div><div class="n">Owen Faust</div><div class="p">Can we move kickoff to Monday?</div></div><span class="msg-time">2h</span></div>
+            <div class="msg-item"><span class="avatar" style="width:36px;height:36px;font-size:13px;">R</span><div><div class="n">Renee Achterberg</div><div class="p">Thanks for the quick turnaround!</div></div><span class="msg-time">1d</span></div>
+          </div>
+          <div class="msg-thread">
+            <div class="msg-thread-head"><span class="avatar" style="width:34px;height:34px;font-size:12px;">A</span><span id="threadName">Alisha Martin</span></div>
+            <div class="msg-thread-body" id="threadBody">
+              <div class="bubble in">Hi — quick question, is invoice #INV-0192 due on the 15th or the 20th this month?</div>
+              <div class="bubble out">Hi Alisha — it's due on the 15th, same as usual. I'll resend the PDF now.</div>
+              <div class="bubble in">Perfect, thank you!</div>
+            </div>
+            <form class="msg-thread-foot" id="msgForm">
+              <input type="text" placeholder="Type a message...">
+              <button type="submit" class="btn btn-solid sm">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVENUE / BILLING -->
+      <section class="dash-view" data-view="billing">
+        <div class="view-head"><div><h1>Revenue</h1><p>Studio-wide billing and invoice status.</p></div><button class="btn btn-line sm js-stub">Export CSV</button></div>
+        <div class="three-col">
+          <div class="dstat-card stack"><div class="dstat-top"><div class="dstat-ic">◎</div><span class="dstat-trend up">↑ 14%</span></div><div class="dstat-value" data-count="41">0</div><div class="dstat-label">MRR (₹ lakh)</div></div>
+          <div class="dstat-card stack"><div class="dstat-top"><div class="dstat-ic">◍</div><span class="dstat-trend up">↑ 9%</span></div><div class="dstat-value" data-count="94">0</div><div class="dstat-label">Paying clients</div></div>
+          <div class="dstat-card stack"><div class="dstat-top"><div class="dstat-ic">⏱</div><span class="dstat-trend down">2 overdue</span></div><div class="dstat-value" data-count="6">0</div><div class="dstat-label">Open invoices</div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Recent invoices</h3></div>
+          <table class="dash-table">
+            <thead><tr><th>Invoice</th><th>Client</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody>
+              <tr><td>INV-0192</td><td>Argot Labs</td><td>₹3,45,000</td><td><span class="pill-status suspended">Overdue</span></td><td>Jul 1</td></tr>
+              <tr><td>INV-0191</td><td>Kairos Finance</td><td>₹3,45,000</td><td><span class="pill-status active">Paid</span></td><td>Jun 28</td></tr>
+              <tr><td>INV-0190</td><td>Halyard Health</td><td>₹1,58,000</td><td><span class="pill-status active">Paid</span></td><td>Jun 24</td></tr>
+              <tr><td>INV-0189</td><td>Plumbline Gear</td><td>₹3,45,000</td><td><span class="pill-status pending">Pending</span></td><td>Jun 20</td></tr>
+              <tr><td>INV-0188</td><td>Cobble Realty</td><td>₹1,58,000</td><td><span class="pill-status active">Paid</span></td><td>Jun 15</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="dash-view" data-view="settings">
+        <div class="view-head"><div><h1>Platform settings</h1><p>Manage studio-wide configuration.</p></div></div>
+        <div class="panel" style="margin-bottom:22px;">
+          <div class="panel-head"><h3>Studio profile</h3></div>
+          <form class="settings-form">
+            <div class="settings-grid">
+              <div class="field"><label>Studio name</label><input type="text" value="Stackly Studio"></div>
+              <div class="field"><label>Support email</label><input type="email" value="hello@stackly.com"></div>
+              <div class="field"><label>Phone</label><input type="text" value="+91 427 234 5678"></div>
+              <div class="field"><label>Time zone</label><input type="text" value="Asia/Kolkata (IST)"></div>
+              <div class="field full"><label>Address</label><textarea>149 Cherry Road, Fairlands, Salem, Tamil Nadu 636016</textarea></div>
+            </div>
+            <button type="submit" class="btn btn-solid">Save changes</button>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Platform preferences</h3></div>
+          <div class="toggle-row"><div><h4>New signup notifications</h4><p>Email the admin team when a new user registers.</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><div><h4>Auto-invoice reminders</h4><p>Send reminders 3 days before an invoice is due.</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><div><h4>Two-factor authentication</h4><p>Require 2FA for all admin accounts.</p></div><label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/effects.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

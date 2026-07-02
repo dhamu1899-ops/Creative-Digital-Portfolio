@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — Stackly Studio</title>
+<meta name="description" content="Log in to your Stackly account as a user or admin.">
+<link rel="icon" href="assets/img/stackly-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body class="auth-body">
+
+<a href="index.html" class="auth-close" aria-label="Close and return to home">✕</a>
+
+<div class="auth-shell">
+
+  <div class="auth-brand">
+    <div class="auth-brand-top">
+      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span>Stack<b>ly</b></span>
+    </div>
+
+    <div class="auth-stack">
+      <div class="auth-stack-card">
+        <h4>Brand &amp; identity</h4>
+        <p>Naming, systems and visual language built to scale.</p>
+      </div>
+      <div class="auth-stack-card">
+        <h4>Product &amp; engineering</h4>
+        <p>Design and code, built by the same stacked team.</p>
+      </div>
+      <div class="auth-stack-card">
+        <h4>180+ products shipped</h4>
+        <p>For 90+ clients since 2015.</p>
+      </div>
+    </div>
+
+    <div class="auth-quote">
+      <p>"Stackly rebuilt our entire product in six weeks flat, and it held up against the biggest names in our category."</p>
+      <cite>Alisha Martin — CEO, Kairos Finance</cite>
+    </div>
+  </div>
+
+  <div class="auth-form-panel">
+    <div class="auth-form-wrap">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Welcome back</p>
+      <h1>Log in to Stackly</h1>
+      <p class="sub">Access your project dashboard, files and messages.</p>
+
+      <div class="form-error" id="loginError"></div>
+
+      <div class="role-tabs">
+        <div class="role-tab active" data-role="user">User login</div>
+        <div class="role-tab" data-role="admin">Admin login</div>
+      </div>
+
+      <form class="auth-form" id="loginForm">
+        <input type="hidden" id="roleInput" value="user">
+
+        <div class="field">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="you@company.com" required>
+        </div>
+
+        <div class="field password-field">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+          <button type="button" class="password-toggle">Show</button>
+        </div>
+
+        <div class="form-meta-row">
+          <label class="check-row"><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-solid full">Log in <span class="arrow">↗</span></button>
+      </form>
+
+      <p class="auth-switch" style="margin-top:30px;">Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/effects.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>
