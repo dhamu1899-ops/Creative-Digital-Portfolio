@@ -127,8 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form.newsletter').forEach(newsletterForm => {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      document.body.classList.remove('page-loaded');
-      setTimeout(() => { window.location.href = '404.html'; }, 280);
+      window.location.href = '404.html';
     });
   });
 
@@ -138,8 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
-      document.body.classList.remove('page-loaded');
-      setTimeout(() => { window.location.href = '404.html'; }, 280);
+      window.location.href = '404.html';
     });
   }
 

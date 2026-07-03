@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{if(localStorage.getItem('stackly_theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team — Stackly Studio</title>
 <meta name="description" content="Meet the senior team behind Stackly Studio — design, engineering and strategy leads working directly with clients.">
@@ -11,12 +12,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-hero-photo">
+<div class="page-loader" id="pageLoader" data-duration="3000">
+  <div class="loader-inner">
+    <div class="loader-brand">
+      <span class="loader-icon-wrap">
+        <span class="ripple-ring r1"></span>
+        <span class="ripple-ring r2"></span>
+        <span class="ripple-ring r3"></span>
+        <span class="logo-icon loader-brand-icon" role="img" aria-label="Stackly logo"></span>
+      </span>
+      <span class="loader-brand-word">Stack<b>ly</b></span>
+    </div>
+    <div class="loader-bar-track"><span class="loader-bar-fill"></span></div>
+  </div>
+</div>
+
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a href="index.html" class="logo">
-      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span class="logo-icon" role="img" aria-label="Stackly logo"></span>
       <span class="logo-word">Stack<span>ly</span></span>
     </a>
     <nav class="main-nav" id="mainNav">
@@ -32,6 +48,10 @@
     <div class="header-actions">
       <a href="login.html" class="btn btn-ghost hide-mobile">Log in</a>
       <a href="login.html" class="btn btn-solid">Start a project <span class="arrow">↗</span></a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20.7 15.3A8.5 8.5 0 0 1 8.7 3.3a1 1 0 0 0-1.3-1.2A10 10 0 1 0 21.9 16.6a1 1 0 0 0-1.2-1.3z"/></svg>
+      </button>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -39,7 +59,7 @@
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero ph-team">
   <div class="wrap">
     <p class="crumb"><a href="index.html">Home</a> / <span>Team</span></p>
     <h1>A small team,<br>on purpose</h1>
@@ -51,49 +71,49 @@
   <div class="wrap">
     <div class="team-grid">
       <article class="team-card reveal-up">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=47" alt="Portrait of Mara Ostrander"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t1.webp" alt="Avatar for Mara Ostrander"><div class="duotone"></div></div>
         <h3>Mara Ostrander</h3>
         <p>Founder &amp; Creative Director</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
       </article>
       <article class="team-card reveal-up delay-1">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=13" alt="Portrait of Devon Achebe"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t2.webp" alt="Avatar for Devon Achebe"><div class="duotone"></div></div>
         <h3>Devon Achebe</h3>
         <p>Head of Product Design</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
       </article>
       <article class="team-card reveal-up delay-2">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=25" alt="Portrait of Priya Kellerman"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t3.webp" alt="Avatar for Priya Kellerman"><div class="duotone"></div></div>
         <h3>Priya Kellerman</h3>
         <p>Lead Engineer</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
       </article>
       <article class="team-card reveal-up delay-3">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=14" alt="Portrait of Sam Rourke"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t4.webp" alt="Avatar for Sam Rourke"><div class="duotone"></div></div>
         <h3>Sam Rourke</h3>
         <p>Growth Strategist</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
       </article>
       <article class="team-card reveal-up">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=45" alt="Portrait of ElenaVasquez"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t5.webp" alt="Avatar for Elena Vasquez"><div class="duotone"></div></div>
         <h3>Elena Vasquez</h3>
         <p>Senior Brand Designer</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
       </article>
       <article class="team-card reveal-up delay-1">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=52" alt="Portrait of Ravi Menon"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t6.webp" alt="Avatar for Ravi Menon"><div class="duotone"></div></div>
         <h3>Ravi Menon</h3>
         <p>Backend Engineer</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
       </article>
       <article class="team-card reveal-up delay-2">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=32" alt="Portrait of Julia Ferreira"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t7.webp" alt="Avatar for Julia Ferreira"><div class="duotone"></div></div>
         <h3>Julia Ferreira</h3>
         <p>Client Partner</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
       </article>
       <article class="team-card reveal-up delay-3">
-        <div class="team-photo"><img src="https://i.pravatar.cc/500?img=8" alt="Portrait of Theo Bracken"><div class="duotone"></div></div>
+        <div class="team-photo"><img src="assets/img/stackly-t8.webp" alt="Avatar for Theo Bracken"><div class="duotone"></div></div>
         <h3>Theo Bracken</h3>
         <p>SEO &amp; Content Lead</p>
         <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div>
@@ -112,7 +132,7 @@
     </div>
     <div class="split-visual reveal-up delay-1">
       <div class="split-frame">
-        <img src="https://picsum.photos/seed/stackly-hiring/760/950.webp" alt="Stackly team collaborating in the studio" loading="lazy">
+        <img src="assets/img/stackly-hiring.webp" alt="Stackly team members in a group discussion" loading="lazy">
         <div class="duotone"></div>
       </div>
     </div>
@@ -123,7 +143,7 @@
   <div class="wrap footer-top">
     <div class="footer-brand">
       <a href="index.html" class="logo">
-        <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+        <span class="logo-icon" role="img" aria-label="Stackly logo"></span>
         <span class="logo-word">Stack<span>ly</span></span>
       </a>
       <p>An independent product design and engineering studio based in Salem, Tamil Nadu — building for teams everywhere.</p>

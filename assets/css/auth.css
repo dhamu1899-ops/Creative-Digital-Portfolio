@@ -12,6 +12,8 @@
 }
 .auth-close:hover{ border-color:var(--gold); color:var(--gold); transform:rotate(90deg); }
 
+.auth-theme-toggle{ position:fixed; top:24px; right:78px; z-index:50; }
+
 .auth-shell{
   min-height:100vh;
   display:grid;
@@ -21,7 +23,7 @@
 /* ---------- brand panel ---------- */
 .auth-brand{
   position:relative;
-  background:var(--bg-alt);
+  background:var(--bg-alt) url('../img/stackly-auth.webp') center/cover no-repeat;
   border-right:1px solid var(--line);
   padding:48px;
   display:flex; flex-direction:column; justify-content:space-between;
@@ -29,12 +31,13 @@
 }
 .auth-brand::before{
   content:"";
-  position:absolute; inset:0;
-  background:radial-gradient(circle at 20% 15%, rgba(216,171,99,.14), transparent 45%),
-             radial-gradient(circle at 85% 80%, rgba(216,171,99,.10), transparent 50%);
+  position:absolute; top:0; right:0; bottom:0; left:0;
+  background:linear-gradient(180deg, rgba(11,13,17,.72) 0%, rgba(11,13,17,.55) 45%, rgba(11,13,17,.88) 100%),
+             radial-gradient(circle at 20% 15%, rgba(216,171,99,.18), transparent 45%),
+             radial-gradient(circle at 85% 80%, rgba(216,171,99,.12), transparent 50%);
 }
-.auth-brand-top{ position:relative; display:flex; align-items:center; gap:10px; }
-.auth-brand-top img{ width:32px; height:32px; }
+.auth-brand-top{ position:relative; display:flex; align-items:center; gap:0; }
+.auth-brand-top .logo-icon{ width:32px; height:32px; }
 .auth-brand-top span{ font-family:var(--font-display); font-weight:700; font-size:20px; }
 .auth-brand-top span b{ color:var(--gold); font-weight:700; }
 

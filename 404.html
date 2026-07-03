@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{if(localStorage.getItem('stackly_theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page not found — Stackly</title>
 <meta name="robots" content="noindex">
@@ -23,8 +24,8 @@
   .notfound-shell::before{ top:-160px; left:-140px; }
   .notfound-shell::after{ bottom:-200px; right:-160px; animation-delay:-8s; animation-duration:20s; }
   .notfound-inner{ position:relative; max-width:560px; }
-  .notfound-logo{ display:inline-flex; align-items:center; gap:10px; margin-bottom:48px; font-family:var(--font-display); font-weight:700; font-size:19px; }
-  .notfound-logo img{ width:30px; height:30px; }
+  .notfound-logo{ display:inline-flex; align-items:center; gap:0; margin-bottom:48px; font-family:var(--font-display); font-weight:700; font-size:19px; }
+  .notfound-logo .logo-icon{ width:30px; height:30px; }
   .notfound-code{
     font-family:var(--font-display); font-weight:800; line-height:.9;
     font-size:clamp(90px,18vw,160px); color:var(--gold);
@@ -46,11 +47,30 @@
 </style>
 </head>
 <body>
+<div class="page-loader" id="pageLoader" data-duration="3000">
+  <div class="loader-inner">
+    <div class="loader-brand">
+      <span class="loader-icon-wrap">
+        <span class="ripple-ring r1"></span>
+        <span class="ripple-ring r2"></span>
+        <span class="ripple-ring r3"></span>
+        <span class="logo-icon loader-brand-icon" role="img" aria-label="Stackly logo"></span>
+      </span>
+      <span class="loader-brand-word">Stack<b>ly</b></span>
+    </div>
+    <div class="loader-bar-track"><span class="loader-bar-fill"></span></div>
+  </div>
+</div>
+
 
 <div class="notfound-shell">
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme" style="position:absolute; top:24px; right:24px;">
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20.7 15.3A8.5 8.5 0 0 1 8.7 3.3a1 1 0 0 0-1.3-1.2A10 10 0 1 0 21.9 16.6a1 1 0 0 0-1.2-1.3z"/></svg>
+  </button>
   <div class="notfound-inner">
     <a href="index.html" class="notfound-logo">
-      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span class="logo-icon" role="img" aria-label="Stackly logo"></span>
       <span>Stack<span style="color:var(--gold);">ly</span></span>
     </a>
 
@@ -72,8 +92,16 @@
 <script src="assets/js/effects.js"></script>
 <script>
   document.getElementById('goBackBtn').addEventListener('click', () => {
-    if (window.history.length > 1) { window.history.back(); }
-    else { window.location.href = 'index.html'; }
+    var sameSiteReferrer = document.referrer && document.referrer.indexOf(window.location.host) !== -1;
+    if (sameSiteReferrer) {
+      window.history.back();
+      // Safety net: if we're still here shortly after, there was nowhere to go back to.
+      setTimeout(() => {
+        if (document.visibilityState !== 'hidden') { window.location.href = 'index.html'; }
+      }, 600);
+    } else {
+      window.location.href = 'index.html';
+    }
   });
 </script>
 </body>

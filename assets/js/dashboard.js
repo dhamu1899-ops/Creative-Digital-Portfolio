@@ -84,8 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.settings-form').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      document.body.classList.remove('page-loaded');
-      setTimeout(() => { window.location.href = '404.html'; }, 280);
+      window.location.href = '404.html';
     });
   });
 

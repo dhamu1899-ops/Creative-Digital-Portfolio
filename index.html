@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{if(localStorage.getItem('stackly_theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stackly — Product Design &amp; Engineering Studio</title>
 <meta name="description" content="Stackly is a product design and engineering studio helping ambitious teams build, ship and scale stacked digital experiences.">
@@ -12,11 +13,26 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<div class="page-loader" id="pageLoader" data-duration="3000">
+  <div class="loader-inner">
+    <div class="loader-brand">
+      <span class="loader-icon-wrap">
+        <span class="ripple-ring r1"></span>
+        <span class="ripple-ring r2"></span>
+        <span class="ripple-ring r3"></span>
+        <span class="logo-icon loader-brand-icon" role="img" aria-label="Stackly logo"></span>
+      </span>
+      <span class="loader-brand-word">Stack<b>ly</b></span>
+    </div>
+    <div class="loader-bar-track"><span class="loader-bar-fill"></span></div>
+  </div>
+</div>
+
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a href="index.html" class="logo">
-      <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+      <span class="logo-icon" role="img" aria-label="Stackly logo"></span>
       <span class="logo-word">Stack<span>ly</span></span>
     </a>
     <nav class="main-nav" id="mainNav">
@@ -32,6 +48,10 @@
     <div class="header-actions">
       <a href="login.html" class="btn btn-ghost hide-mobile">Log in</a>
       <a href="login.html" class="btn btn-solid">Start a project <span class="arrow">↗</span></a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20.7 15.3A8.5 8.5 0 0 1 8.7 3.3a1 1 0 0 0-1.3-1.2A10 10 0 1 0 21.9 16.6a1 1 0 0 0-1.2-1.3z"/></svg>
+      </button>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -40,7 +60,7 @@
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-noise" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="reveal-up">
@@ -57,6 +77,9 @@
 
       <div class="trust-row">
         <span>Trusted by</span>
+        <div class="trust-logos-static">
+          <span>Northfield</span><span>Kairos</span><span>Halyard</span><span>Argot Labs</span>
+        </div>
         <div class="trust-logos-mask">
           <div class="trust-logos">
             <span>Northfield</span><span>Kairos</span><span>Halyard</span><span>Argot Labs</span><span>Plumbline</span><span>Meridian Co.</span>
@@ -68,10 +91,10 @@
 
     <div class="hero-visual reveal-up delay-1">
       <div class="hero-frame">
-        <img src="https://picsum.photos/seed/stackly-hero/700/860.webp" alt="Stackly team reviewing a product roadmap on a whiteboard" loading="eager">
+        <img src="assets/img/stackly-hero.webp" alt="Stackly team collaborating in the studio office" loading="eager">
         <div class="duotone"></div>
       </div>
-      <div class="hero-badge"><img src="assets/img/stackly-logo.svg" alt=""></div>
+      <div class="hero-badge"><span class="logo-icon" aria-hidden="true"></span></div>
       <div class="hero-stat">
         <span class="stat-num" data-count="180">0</span>
         <span class="stat-label">Products shipped<br>since 2015</span>
@@ -229,7 +252,7 @@
   <div class="wrap split-grid">
     <div class="split-visual reveal-up">
       <div class="split-frame">
-        <img src="https://picsum.photos/seed/stackly-about/760/950.webp" alt="Two Stackly designers reviewing a layout together" loading="lazy">
+        <img src="assets/img/stackly-about.webp" alt="Two colleagues discussing a project using a laptop and documents" loading="lazy">
         <div class="duotone"></div>
       </div>
       <div class="split-float">
@@ -276,17 +299,17 @@
     </div>
     <div class="work-grid">
       <article class="work-card reveal-up">
-        <img src="https://picsum.photos/seed/stackly-work1/700/860.webp" alt="Rebrand cover for a fintech client" loading="lazy">
+        <img src="assets/img/stackly-work1.webp" alt="Rebrand cover for a fintech client" loading="lazy">
         <div class="duotone"></div>
         <div class="work-info"><span>Brand identity</span><h3>Kairos Finance</h3></div>
       </article>
       <article class="work-card short reveal-up delay-1">
-        <img src="https://picsum.photos/seed/stackly-work2/700/560.webp" alt="Website redesign cover" loading="lazy">
+        <img src="assets/img/stackly-work2.webp" alt="Website redesign cover" loading="lazy">
         <div class="duotone"></div>
         <div class="work-info"><span>Web development</span><h3>Halyard Health</h3></div>
       </article>
       <article class="work-card short reveal-up delay-2">
-        <img src="https://picsum.photos/seed/stackly-work3/700/560.webp" alt="Mobile app interface cover" loading="lazy">
+        <img src="assets/img/stackly-work3.webp" alt="Mobile app interface cover" loading="lazy">
         <div class="duotone"></div>
         <div class="work-info"><span>Product &amp; UX</span><h3>Plumbline Gear</h3></div>
       </article>
@@ -299,7 +322,7 @@
   <div class="wrap testi-grid">
     <div class="testi-visual reveal-up">
       <div class="testi-frame">
-        <img src="https://i.pravatar.cc/560?img=39" alt="Portrait of Alisha Martin, CEO of Kairos Finance" loading="lazy">
+        <img src="assets/img/stackly-testi.webp" alt="Avatar for Alisha Martin, CEO of Kairos Finance" loading="lazy">
         <div class="duotone"></div>
       </div>
     </div>
@@ -342,7 +365,7 @@
   <div class="wrap footer-top">
     <div class="footer-brand">
       <a href="index.html" class="logo">
-        <img src="assets/img/stackly-logo.svg" alt="Stackly logo">
+        <span class="logo-icon" role="img" aria-label="Stackly logo"></span>
         <span class="logo-word">Stack<span>ly</span></span>
       </a>
       <p>An independent product design and engineering studio based in Salem, Tamil Nadu — building for teams everywhere.</p>

@@ -1,23 +1,38 @@
 /* =========================================================
-   STACKLY — shared visual effects (page transition + ripple)
+   STACKLY — shared visual effects
+   Page-entry loader, theme toggle, ripple, stub-link routing.
    Included on every page.
    ========================================================= */
+
+/* ---------- Page loader: hide after its data-duration ----------
+   Runs immediately (not gated on DOMContentLoaded) so the timer
+   starts as soon as possible after the browser paints. */
+(function () {
+  var loader = document.getElementById('pageLoader');
+  if (!loader) return;
+  var duration = parseInt(loader.dataset.duration, 10) || 2000;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hide = function () { loader.classList.add('hide'); };
+  if (reduceMotion) {
+    setTimeout(hide, 300);
+  } else {
+    setTimeout(hide, duration);
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Page-load fade-in ---------- */
-  requestAnimationFrame(() => {
-    document.body.classList.add('page-loaded');
-  });
-
-  /* ---------- Fade-out on internal navigation ---------- */
-  document.querySelectorAll('a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
-    link.addEventListener('click', (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
-      e.preventDefault();
-      document.body.classList.remove('page-loaded');
-      setTimeout(() => { window.location.href = href; }, 280);
+  /* ---------- Light / dark theme toggle ---------- */
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('stackly_theme', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('stackly_theme', 'light'); } catch (e) {}
+      }
     });
   });
 
@@ -25,20 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
      Any anchor pointing at bare "#" (no real destination and no
      existing onclick behaviour) or any element flagged .js-stub
      is a feature that isn't wired up to anything real yet. */
-  function goTo404() {
-    document.body.classList.remove('page-loaded');
-    setTimeout(() => { window.location.href = '404.html'; }, 280);
-  }
   document.querySelectorAll('a[href="#"]:not([onclick])').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      goTo404();
+      window.location.href = '404.html';
     });
   });
   document.querySelectorAll('.js-stub').forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      goTo404();
+      window.location.href = '404.html';
     });
   });
 
