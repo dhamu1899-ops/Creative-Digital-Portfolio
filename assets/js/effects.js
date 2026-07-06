@@ -14,7 +14,7 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hide = function () { loader.classList.add('hide'); };
   if (reduceMotion) {
-    setTimeout(hide, 3000);
+    setTimeout(hide, 300);
   } else {
     setTimeout(hide, duration);
   }
