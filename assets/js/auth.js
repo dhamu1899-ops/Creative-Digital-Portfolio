@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       errorBox.classList.remove('show');
+      const submitBtn = loginForm.querySelector('button[type="submit"]');
+      if (submitBtn) { submitBtn.textContent = 'Logging in…'; submitBtn.disabled = true; }
       window.StackyAuth.setSession({ name: nameFromEmail(email), email, role });
       window.location.href = role === 'admin' ? 'dashboard-admin.html' : 'dashboard-user.html';
     });
@@ -138,6 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       errorBox.classList.remove('show');
+      const submitBtn = signupForm.querySelector('button[type="submit"]');
+      if (submitBtn) { submitBtn.textContent = 'Creating account…'; submitBtn.disabled = true; }
       window.StackyAuth.addUser({ name, email, password, role });
       window.location.href = 'index.html?signup=success';
     });

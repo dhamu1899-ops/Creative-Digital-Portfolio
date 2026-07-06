@@ -123,21 +123,80 @@ document.addEventListener('DOMContentLoaded', () => {
     resetAutoplay();
   }
 
-  /* ---------- Newsletter forms -> 404 (no backend wired up yet) ---------- */
+  /* ---------- Newsletter forms -> real email delivery ----------
+     Uses FormSubmit (https://formsubmit.co) — a free form-relay service
+     that emails submissions with no backend required. Replace the
+     address below with the real inbox that should receive signups;
+     FormSubmit sends a one-time confirmation link to that address the
+     first time a submission comes in, which must be clicked to activate. */
+  const NEWSLETTER_ENDPOINT = 'https://formsubmit.co/ajax/hello@stackly.com';
   document.querySelectorAll('form.newsletter').forEach(newsletterForm => {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      window.location.href = '404.html';
+      const input = newsletterForm.querySelector('input[type="email"]');
+      const button = newsletterForm.querySelector('button');
+      if (!input || !input.value.trim()) return;
+      const original = button.textContent;
+      button.textContent = '...';
+      button.disabled = true;
+
+      fetch(NEWSLETTER_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: 'New newsletter signup — Stackly', email: input.value.trim() })
+      })
+        .then(res => { if (!res.ok) throw new Error('request failed'); })
+        .then(() => {
+          button.textContent = 'Joined';
+          input.value = '';
+          window.showToast && window.showToast("You're subscribed — thanks!");
+        })
+        .catch(() => {
+          window.showToast && window.showToast('Something went wrong. Please try again shortly.');
+        })
+        .finally(() => {
+          button.disabled = false;
+          setTimeout(() => { button.textContent = original; }, 2600);
+        });
     });
   });
 
-  /* ---------- Contact form -> 404 (no backend wired up yet) ---------- */
+  /* ---------- Contact form -> real email delivery ----------
+     Same FormSubmit relay as the newsletter forms above — swap in the
+     real destination inbox and confirm the activation email. */
+  const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/hello@stackly.com';
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
-      window.location.href = '404.html';
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalHTML = submitBtn.innerHTML;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      const payload = {};
+      new FormData(contactForm).forEach((value, key) => { payload[key] = value; });
+      payload._subject = 'New project enquiry — Stackly';
+
+      fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(res => { if (!res.ok) throw new Error('request failed'); })
+        .then(() => {
+          contactForm.reset();
+          window.showToast && window.showToast("Message sent — we'll reply within one business day.");
+        })
+        .catch(() => {
+          window.showToast && window.showToast('Something went wrong sending your message. Please email us directly.');
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+        });
     });
   }
 

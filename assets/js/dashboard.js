@@ -75,6 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
       bubble.className = 'bubble out';
       bubble.textContent = input.value.trim();
       body.appendChild(bubble);
+
+      const time = document.createElement('span');
+      time.className = 'msg-sent-time';
+      time.textContent = 'Sent · ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      body.appendChild(time);
+
       body.scrollTop = body.scrollHeight;
       input.value = '';
     });

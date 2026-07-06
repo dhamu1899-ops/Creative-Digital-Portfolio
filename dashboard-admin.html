@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <script>(function(){try{if(localStorage.getItem('stackly_theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+<script>(function(){
+  try{
+    var s = JSON.parse(localStorage.getItem('stackly_session'));
+    if(!s || s.role !== 'admin'){ window.location.replace('login.html'); }
+  }catch(e){ window.location.replace('login.html'); }
+})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard — Stackly</title>
 <link rel="icon" href="assets/img/stackly-logo.svg" type="image/svg+xml">
