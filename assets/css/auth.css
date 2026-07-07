@@ -12,7 +12,6 @@
 }
 .auth-close:hover{ border-color:var(--gold); color:var(--gold); transform:rotate(90deg); }
 
-.auth-theme-toggle{ position:fixed; top:24px; right:78px; z-index:50; }
 
 .auth-shell{
   min-height:100vh;

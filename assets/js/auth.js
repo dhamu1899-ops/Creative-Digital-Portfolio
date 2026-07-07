@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (!window.StackyValidate(loginForm)) return;
       const email = document.getElementById('loginEmail').value.trim();
       const password = document.getElementById('loginPassword').value;
       const role = roleInput ? roleInput.value : 'user';
@@ -99,9 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       errorBox.classList.remove('show');
       const submitBtn = loginForm.querySelector('button[type="submit"]');
-      if (submitBtn) { submitBtn.textContent = 'Logging in…'; submitBtn.disabled = true; }
-      window.StackyAuth.setSession({ name: nameFromEmail(email), email, role });
-      window.location.href = role === 'admin' ? 'dashboard-admin.html' : 'dashboard-user.html';
+      const successBox = document.getElementById('loginSuccess');
+      if (submitBtn) { submitBtn.textContent = 'Authenticating…'; submitBtn.disabled = true; }
+
+      setTimeout(() => {
+        window.StackyAuth.setSession({ name: nameFromEmail(email), email, role });
+        if (submitBtn) submitBtn.textContent = 'Login successful ✓';
+        if (successBox) {
+          successBox.textContent = 'Login successful — redirecting to your dashboard…';
+          successBox.classList.add('show');
+        }
+        setTimeout(() => {
+          window.location.href = role === 'admin' ? 'dashboard-admin.html' : 'dashboard-user.html';
+        }, 900);
+      }, 1000);
     });
   }
 
@@ -110,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (signupForm) {
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (!window.StackyValidate(signupForm)) return;
       const name = document.getElementById('signupName').value.trim();
       const email = document.getElementById('signupEmail').value.trim();
       const password = document.getElementById('signupPassword').value;

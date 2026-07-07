@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form.newsletter').forEach(newsletterForm => {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (!window.StackyValidate(newsletterForm)) return;
       const input = newsletterForm.querySelector('input[type="email"]');
       const button = newsletterForm.querySelector('button');
       if (!input || !input.value.trim()) return;
@@ -150,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
           button.textContent = 'Joined';
           input.value = '';
           window.showToast && window.showToast("You're subscribed — thanks!");
+          setTimeout(() => { window.location.href = '404.html'; }, 1400);
         })
         .catch(() => {
           window.showToast && window.showToast('Something went wrong. Please try again shortly.');
@@ -169,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
+      if (!window.StackyValidate(contactForm)) return;
 
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalHTML = submitBtn.innerHTML;
@@ -189,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(() => {
           contactForm.reset();
           window.showToast && window.showToast("Message sent — we'll reply within one business day.");
+          setTimeout(() => { window.location.href = '404.html'; }, 1400);
         })
         .catch(() => {
           window.showToast && window.showToast('Something went wrong sending your message. Please email us directly.');
